@@ -34,7 +34,7 @@ p{
         height: 100%;
         background-image: url(../images/salle-fitfood.png);
         background-size: cover;
-        filter: brightness(0.3);
+        filter: brightness(0.4);
     }
     *{
         //Positionner les éléments devant de ::before
@@ -48,4 +48,8 @@ p{
         align-items: center;
         justify-content: center;
     }
+}
+
+.text-justify{
+    text-align: justify;
 }
