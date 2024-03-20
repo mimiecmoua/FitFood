@@ -7,11 +7,11 @@ const inputPassword = document.getElementById("PasswordInput");
 const inputValidationPassword = document.getElementById("ValidatePasswordInput");
 const bntValidation = document.getElementById("btn-validation-inscription");
 
-NomInput.addEventListener("keyup", validateForm);
-PrenomInput.addEventListener("keyup", validateForm);
-EmailInput.addEventListener("keyup", validateForm);
-PasswordInput.addEventListener("keyup", validateForm);
-ValidatePasswordInput.addEventListener("keyup", validateForm);
+inputNom.addEventListener("keyup", validateForm);
+inputPrenom.addEventListener("keyup", validateForm);
+inputMail.addEventListener("keyup", validateForm);
+inputPassword.addEventListener("keyup", validateForm);
+inputValidationPassword.addEventListener("keyup", validateForm);
 
 //Function permettant de valider tout le formulaire
 function validateForm(){
@@ -19,12 +19,26 @@ function validateForm(){
     const prenomOk = validateRequired(inputPrenom);
     const mailOk = validateMail(inputMail);
     const passwordOk= validatePassword(inputPassword);
+    const passwordConfirmOk = validateConfirmationPassword(inputPassword, inputValidationPassword);
 
-    if(nomOk && prenomOk && mailOk && passwordOk){
+    if(nomOk && prenomOk && mailOk && passwordOk && passwordConfirmOk){
         bntValidation.disabled = false;
     }
     else{
         bntValidation.disabled = true;
+    }
+}
+
+function validateConfirmationPassword(inputPwd, inputConfirmPwd){
+    if(inputPwd.value == inputConfirmPwd.value){
+        inputConfirmPwd.classList.add("is-valid");
+        inputConfirmPwd.classList.remove("is-invalid");
+        return true;
+    }
+    else{
+        inputConfirmPwd.classList.add("is-invalid");
+        inputConfirmPwd.classList.remove("is-valid");
+        return false;
     }
 }
 
