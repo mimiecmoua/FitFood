@@ -12030,6 +12030,9 @@ p {
 }
 .image-card:hover img {
   filter: brightness(0.3);
+  width: auto !important;
+  max-width: 100%;
+  height: auto;
 }
 .image-card img {
   transition: all 0.3s;
